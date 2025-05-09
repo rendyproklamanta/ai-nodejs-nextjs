@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import OpenAI from "openai";
 import dotenv from "dotenv";
 import CORS from "cors";
+
 // Initialize environment variables
 dotenv.config();
 
@@ -11,7 +12,7 @@ app.use(bodyParser.json());
 app.use(CORS());
 
 const openai = new OpenAI({
-  apiKey: "",
+  apiKey: process.env.OPENAI_API_KEY
 });
 
 app.get("/", (req, res) => {
